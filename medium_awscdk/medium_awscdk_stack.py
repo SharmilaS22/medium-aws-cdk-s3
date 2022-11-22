@@ -1,6 +1,7 @@
 from aws_cdk import (
     Stack,
-    aws_s3 as s3
+    aws_s3 as s3,
+    RemovalPolicy
 )
 from constructs import Construct
 
@@ -11,6 +12,7 @@ class MediumAwscdkStack(Stack):
 
         s3.Bucket(
             self, 
-            "bucket123", 
-            bucket_name="sharmi-bucket123"
+            id="bucket123",
+            bucket_name="sharmi-bucket123",
+            removal_policy=RemovalPolicy.DESTROY
         )
